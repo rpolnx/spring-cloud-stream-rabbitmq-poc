@@ -1,0 +1,22 @@
+spring:
+  cloud.stream:
+    default:
+      group: group
+    bindings:
+      custom-channel-1:
+        destination: custom-channel-p1
+        group: custom-channel-p1-group
+      custom-channel-2:
+        destination: custom-channel-p2
+    rabbit:
+      default:
+        consumer:
+          auto-bind-dlq: true
+          dlq-ttl: 30000
+          max-concurrency: 5
+          failed-declaration-retry-interval: 1000
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
